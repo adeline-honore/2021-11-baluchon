@@ -8,7 +8,6 @@
 import Foundation
 
 struct WeatherStruct: Codable {
-    openweathermap
     
     struct Coord: Codable {
         let lon: Double
@@ -17,24 +16,15 @@ struct WeatherStruct: Codable {
     
     let coord: Coord
     
-    // How to make it Codable?
-    //let weather: [Any]
-    //let weather: [Key: Value]
-    
-    /*
     struct Weather: Codable {
-        [String: Int, String: String, String: String, String: String]
-    }*/
-    
-    struct WeatherArray: Codable {
-            let id: Int
+        let id: Int
         let main: String
         let description: String
         let icon: String
-        }
+    }
     
-    let weatherArray: [WeatherArray]
-     
+    let weather: [Weather]
+    
     struct Main: Codable {
         let temp: Double
         let humidity: Int
@@ -58,3 +48,4 @@ struct WeatherStruct: Codable {
     let cod: Int
     
 }
+

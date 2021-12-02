@@ -9,21 +9,39 @@ import UIKit
 
 class WeatherViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    // MARK: - Properties
+    private var weatherView: WeatherView!
+    private var weatherService = WeatherService()
+    
+    // MARK: - Override
+    
+    override func loadView() {
+        super.loadView()
+        weatherView = view as? WeatherView
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        showWeatherInformations()
     }
-    */
-
+    
+    // MARK: - Methods
+    
+    private func showWeatherInformations() {
+        
+        weatherService.getData { result in
+            switch result {
+            case .success(let weather):
+                self.update(weather: weather)
+            case .failure:
+                self.errorMessage(element: .network)
+            }
+        }
+    }
+    
+    private func update(weather: WeatherStruct) {
+        DispatchQueue.main.async {
+            self.weatherView.localWeatherTemperature.text = String(weather.coord.lat)
+        }
+    }
 }

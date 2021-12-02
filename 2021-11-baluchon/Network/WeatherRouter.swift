@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+class WeatherRouter: RouterProtocol {
+    
+    func asUrlRequest() -> URLRequest? {
+        let url = Constants.getWeatherRouter()
+        return URLRequest(url: url)
+    }
+}

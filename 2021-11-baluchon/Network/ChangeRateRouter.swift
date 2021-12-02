@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+class ChangeRateRouter: RouterProtocol {
+    
+    func asUrlRequest() -> URLRequest? {
+        let url = Constants.getChangeRateRouter()
+        return URLRequest(url: url)
+    }
+}

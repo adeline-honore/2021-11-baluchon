@@ -8,22 +8,57 @@
 import UIKit
 
 class ChangeRateViewController: UIViewController {
+    
+    // MARK: - Properties
+    private var changeRateView: ChangeRateView!
+    private var changeRateService = ChangeRateViewService()
+    
+    // MARK: - Override
+    override func loadView() {
+        super.loadView()
+        changeRateView = view as? ChangeRateView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - IBAction
+    
+    @IBAction func didTapChangeCurrencyButton() {
+        convertAmount()
     }
-    */
-
+    
+    // MARK: - Methods
+    private func convertAmount() {
+        
+        changeRateService.getData { result in
+            
+            switch result {
+            case .success(let fixer):
+                self.update(fixer: fixer)
+            case .failure:
+                self.errorMessage(element: .network)
+            }
+        }
+    }
+    
+    private func update(fixer: Fixer) {
+        // get rate
+        // mettre un guard
+        // ----------------------------------------------------------
+        let changeRate = Double(fixer.rates["USD"] ?? 0.0)
+        
+        guard let amountToConvert = Double(changeRateView.amountToConvert.text ?? "") else {
+            errorMessage(element: .noAmount)
+            return
+        }
+        // convert amount
+        let result = amountToConvert * changeRate
+        
+        // update label
+        DispatchQueue.main.async {
+            self.changeRateView.convertedAmount.text = String(result)
+        }
+    }
 }

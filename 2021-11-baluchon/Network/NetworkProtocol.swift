@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol NetworkProtocol {
+    func callNetwork(router: RouterProtocol, completionHandler: @escaping (Result<Data, Error>) -> ())
+}
