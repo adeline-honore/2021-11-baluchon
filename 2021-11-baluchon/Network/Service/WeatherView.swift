@@ -11,6 +11,8 @@ class WeatherView: UIView {
     
     @IBOutlet weak var localWeatherImage: UIImageView!
     @IBOutlet weak var localWeatherTemperature: UILabel!
+    @IBOutlet weak var localWeatherDescription: UILabel!
     @IBOutlet weak var ncWeatherImage: UIImageView!
     @IBOutlet weak var ncWeatherTemperature: UILabel!
+    @IBOutlet weak var ncWeatherDescription: UILabel!
 }

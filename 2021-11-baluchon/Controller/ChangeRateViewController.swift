@@ -44,21 +44,25 @@ class ChangeRateViewController: UIViewController {
     }
     
     private func update(fixer: Fixer) {
-        // get rate
-        // mettre un guard
-        // ----------------------------------------------------------
         let changeRate = Double(fixer.rates["USD"] ?? 0.0)
         
         guard let amountToConvert = Double(changeRateView.amountToConvert.text ?? "") else {
             errorMessage(element: .noAmount)
             return
         }
-        // convert amount
-        let result = amountToConvert * changeRate
+        
+        let result = NSDecimalNumber.init(string: String(amountToConvert * changeRate))
+
+        let behaviour = NSDecimalNumberHandler(roundingMode: .bankers,
+        scale: 2, raiseOnExactness: false,
+        raiseOnOverflow: false, raiseOnUnderflow:
+        false, raiseOnDivideByZero: false)
+
+        let numRounded = result.rounding(accordingToBehavior: behaviour)
         
         // update label
         DispatchQueue.main.async {
-            self.changeRateView.convertedAmount.text = String(result)
+            self.changeRateView.convertedAmount.text = numRounded.stringValue
         }
     }
 }

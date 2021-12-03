@@ -32,16 +32,20 @@ class WeatherViewController: UIViewController {
         weatherService.getData { result in
             switch result {
             case .success(let weather):
-                self.update(weather: weather)
+                self.update(weatherDecode: weather)
             case .failure:
                 self.errorMessage(element: .network)
             }
         }
     }
     
-    private func update(weather: WeatherStruct) {
+    private func update(weatherDecode: WeatherStructure) {
         DispatchQueue.main.async {
-            self.weatherView.localWeatherTemperature.text = String(weather.coord.lat)
+            //let icon = weatherDecode.weather["icon"]
+            let description = weatherDecode.weather
+            
+            self.weatherView.localWeatherTemperature.text = String(weatherDecode.main.temp)
+            //self.weatherView.localWeatherImage.image = UIImage(named: weatherDecode.weather["icon"])
         }
     }
 }

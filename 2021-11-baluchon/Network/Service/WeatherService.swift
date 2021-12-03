@@ -11,7 +11,7 @@ class WeatherService: WeatherServiceProtocol {
     
     var network: NetworkProtocol = Network()
     
-    func getData(completionHandler: @escaping (Result<WeatherStruct, Error>) -> ()) {
+    func getData(completionHandler: @escaping (Result<WeatherStructure, Error>) -> ()) {
         
         network.callNetwork(router: WeatherRouter()) { result in
             
@@ -25,10 +25,10 @@ class WeatherService: WeatherServiceProtocol {
         }
     }
     
-    private func transformToWeather(data: Data) -> WeatherStruct {
-        var responseWeather: WeatherStruct
+    private func transformToWeather(data: Data) -> WeatherStructure {
+        var responseWeather: WeatherStructure
         let data = data
-        responseWeather = try! JSONDecoder().decode(WeatherStruct.self, from: data)
+        responseWeather = try! JSONDecoder().decode(WeatherStructure.self, from: data)
         return responseWeather
     }
 }
