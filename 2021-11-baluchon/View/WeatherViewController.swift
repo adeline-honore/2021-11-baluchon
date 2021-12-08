@@ -8,10 +8,12 @@
 import UIKit
 
 class WeatherViewController: UIViewController {
-
+    
     // MARK: - Properties
+    
     private var weatherView: WeatherView!
     private var weatherService = WeatherService()
+
     
     // MARK: - Override
     
@@ -41,17 +43,17 @@ class WeatherViewController: UIViewController {
     
     private func update(weatherDecode: WeatherStructure) {
         DispatchQueue.main.async {
-            //let city = weatherDecode.name
             
-            self.weatherView.localWeatherDescription.text = weatherDecode.weather.first?.description
-            
-            self.weatherView.localWeatherTemperature.text = String(self.fahrenheitToCelsius(fahrenheit: weatherDecode.main.temp))
-            
-            self.weatherView.localWeatherImage.image = UIImage(named: weatherDecode.weather.first?.icon ?? "logo")
+            self .weatherView.originWeatherView.configure(
+                value1: weatherDecode.name,
+                value2: self.kelvinToCelsius(kelvin: weatherDecode.main.temp),
+                value3: weatherDecode.weather.first?.description ?? "no value",
+                value4: weatherDecode.weather.first?.icon ?? "logo"
+            )
         }
     }
     
-    private func fahrenheitToCelsius(fahrenheit: Double) -> Double {
-        return (fahrenheit - 32)/1.8
+    private func kelvinToCelsius(kelvin: Double) -> String {
+        return String(format:"%.1f", (kelvin - 273.15))
     }
 }

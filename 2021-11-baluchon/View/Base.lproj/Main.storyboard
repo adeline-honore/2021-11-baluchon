@@ -28,7 +28,7 @@
         <scene sceneID="YfW-KZ-FHo">
             <objects>
                 <viewController id="Orz-0e-pce" customClass="WeatherViewController" customModule="_021_11_baluchon" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="k1h-mD-Jbq">
+                    <view key="view" contentMode="scaleToFill" id="k1h-mD-Jbq" customClass="WeatherView" customModule="_021_11_baluchon" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -160,6 +160,10 @@
                             <constraint firstItem="fqh-xA-5Nc" firstAttribute="centerX" secondItem="k1h-mD-Jbq" secondAttribute="centerX" id="nQk-C0-GKM"/>
                             <constraint firstItem="fqh-xA-5Nc" firstAttribute="leading" secondItem="do5-tL-RDc" secondAttribute="leading" constant="50" id="s3C-ng-bV8"/>
                         </constraints>
+                        <connections>
+                            <outlet property="destinyWeatherView" destination="PN7-Ur-pqg" id="qlA-0o-WQu"/>
+                            <outlet property="originWeatherView" destination="FKj-Zi-aPD" id="IYV-k7-D7S"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="sun.and.horizon.fill" catalog="system" id="14u-bg-bIF"/>
                     <navigationItem key="navigationItem" id="1Kt-FR-v93"/>

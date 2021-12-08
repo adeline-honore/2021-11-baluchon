@@ -14,12 +14,10 @@ class CustomWeatherView: UIView {
     @IBOutlet weak var label3: UILabel!
     @IBOutlet weak var image: UIImageView!
     
- 
     func configure(value1: String, value2: String, value3: String, value4: String) {
         label1.text = value1
         label2.text = value2
         label3.text = value3
         image.image = UIImage(named: value4)
-        
     }
 }
