@@ -50,7 +50,7 @@ class ChangeRateViewController: UIViewController {
             errorMessage(element: .noAmount)
             return
         }
-        
+        /*
         let result = NSDecimalNumber.init(string: String(amountToConvert * changeRate))
 
         let behaviour = NSDecimalNumberHandler(roundingMode: .bankers,
@@ -60,9 +60,11 @@ class ChangeRateViewController: UIViewController {
 
         let numRounded = result.rounding(accordingToBehavior: behaviour)
         
+        */
+        
         // update label
         DispatchQueue.main.async {
-            self.changeRateView.convertedAmount.text = numRounded.stringValue
+            self.changeRateView.convertedAmount.text = String(format:"%.2f", (amountToConvert * changeRate))
         }
     }
 }
