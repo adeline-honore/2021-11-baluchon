@@ -8,5 +8,7 @@
 import Foundation
 
 protocol RouterProtocol {
+    var baseURL: String { get }
+    func buildParams() -> URL?
     func asUrlRequest() -> URLRequest?
 }

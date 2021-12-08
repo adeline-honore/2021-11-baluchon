@@ -41,11 +41,17 @@ class WeatherViewController: UIViewController {
     
     private func update(weatherDecode: WeatherStructure) {
         DispatchQueue.main.async {
-            //let icon = weatherDecode.weather["icon"]
-            let description = weatherDecode.weather
+            //let city = weatherDecode.name
             
-            self.weatherView.localWeatherTemperature.text = String(weatherDecode.main.temp)
-            //self.weatherView.localWeatherImage.image = UIImage(named: weatherDecode.weather["icon"])
+            self.weatherView.localWeatherDescription.text = weatherDecode.weather.first?.description
+            
+            self.weatherView.localWeatherTemperature.text = String(self.fahrenheitToCelsius(fahrenheit: weatherDecode.main.temp))
+            
+            self.weatherView.localWeatherImage.image = UIImage(named: weatherDecode.weather.first?.icon ?? "logo")
         }
+    }
+    
+    private func fahrenheitToCelsius(fahrenheit: Double) -> Double {
+        return (fahrenheit - 32)/1.8
     }
 }

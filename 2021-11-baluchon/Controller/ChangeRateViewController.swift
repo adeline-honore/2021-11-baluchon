@@ -44,7 +44,7 @@ class ChangeRateViewController: UIViewController {
     }
     
     private func update(fixer: Fixer) {
-        let changeRate = Double(fixer.rates["USD"] ?? 0.0)
+        let changeRate = fixer.rates["USD"] ?? 0.0
         
         guard let amountToConvert = Double(changeRateView.amountToConvert.text ?? "") else {
             errorMessage(element: .noAmount)
