@@ -11,9 +11,15 @@ class WeatherViewController: UIViewController {
     
     // MARK: - Properties
     
+    @IBOutlet weak var originWeatherView: CustomWeatherView!
+    @IBOutlet weak var destinyWeatherView: CustomWeatherView!
+    
     private var weatherView: WeatherView!
     private var weatherService = WeatherService()
-
+    
+    private let originCity: String = "Paris"
+    private let destinationCity: String = "Nantes"
+    
     
     // MARK: - Override
     
@@ -24,31 +30,32 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showWeatherInformations()
+        showWeatherInformations(city: originCity, weatherView: originWeatherView)
+        showWeatherInformations(city: destinationCity, weatherView: destinyWeatherView)
     }
     
     // MARK: - Methods
     
-    private func showWeatherInformations() {
+    private func showWeatherInformations(city: String, weatherView: CustomWeatherView) {
         
-        weatherService.getData { result in
+        weatherService.getData(city: city) { result in
             switch result {
             case .success(let weather):
-                self.update(weatherDecode: weather)
+                self.update(weatherDecode: weather, customView: weatherView)
             case .failure:
                 self.errorMessage(element: .network)
             }
         }
     }
     
-    private func update(weatherDecode: WeatherStructure) {
-        DispatchQueue.main.async {
+    private func update(weatherDecode: WeatherStructure, customView: CustomWeatherView) {
+        DispatchQueue.main.async { 
             
-            self .weatherView.originWeatherView.configure(
-                value1: weatherDecode.name,
-                value2: self.kelvinToCelsius(kelvin: weatherDecode.main.temp),
-                value3: weatherDecode.weather.first?.description ?? "no value",
-                value4: weatherDecode.weather.first?.icon ?? "logo"
+            customView.configure(
+                cityNameValue: weatherDecode.name,
+                temperatureValue: self.kelvinToCelsius(kelvin: weatherDecode.main.temp),
+                detailsValue: weatherDecode.weather.first?.description ?? "no value",
+                imageValue: weatherDecode.weather.first?.icon ?? "logo"
             )
         }
     }

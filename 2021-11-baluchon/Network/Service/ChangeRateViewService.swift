@@ -15,13 +15,13 @@ class ChangeRateViewService {
         
         return network.callNetwork(router: ChangeRateRouter.getRate(parameter: "USD"), completionHandler: { result in
             DispatchQueue.main.async {
-            switch result {
-            case .success(let data):
-                let fixer = self.transformToFixer(data: data)
-                completionHandler(.success(fixer))
-            case .failure(let error):
-                completionHandler(.failure(error))
-            }
+                switch result {
+                case .success(let data):
+                    let fixer = self.transformToFixer(data: data)
+                    completionHandler(.success(fixer))
+                case .failure(let error):
+                    completionHandler(.failure(error))
+                }
             }
         })
     }

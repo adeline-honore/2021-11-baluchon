@@ -9,15 +9,15 @@ import UIKit
 
 class CustomWeatherView: UIView {
    
-    @IBOutlet weak var label1: UILabel!
-    @IBOutlet weak var label2: UILabel!
-    @IBOutlet weak var label3: UILabel!
+    @IBOutlet weak var cityName: UILabel!
+    @IBOutlet weak var temperature: UILabel!
+    @IBOutlet weak var details: UILabel!
     @IBOutlet weak var image: UIImageView!
     
-    func configure(value1: String, value2: String, value3: String, value4: String) {
-        label1.text = value1
-        label2.text = value2
-        label3.text = value3
-        image.image = UIImage(named: value4)
+    func configure(cityNameValue: String, temperatureValue: String, detailsValue: String, imageValue: String) {
+        cityName.text = cityNameValue
+        temperature.text = temperatureValue
+        details.text = detailsValue
+        image.image = UIImage(named: imageValue)
     }
 }

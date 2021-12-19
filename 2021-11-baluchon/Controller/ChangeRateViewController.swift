@@ -34,7 +34,7 @@ class ChangeRateViewController: UIViewController {
         
         changeRateService.getData { result in
             
-            switch result {
+            switch result { 
             case .success(let fixer):
                 self.update(fixer: fixer)
             case .failure:
@@ -50,21 +50,9 @@ class ChangeRateViewController: UIViewController {
             errorMessage(element: .noAmount)
             return
         }
-        /*
-        let result = NSDecimalNumber.init(string: String(amountToConvert * changeRate))
-
-        let behaviour = NSDecimalNumberHandler(roundingMode: .bankers,
-        scale: 2, raiseOnExactness: false,
-        raiseOnOverflow: false, raiseOnUnderflow:
-        false, raiseOnDivideByZero: false)
-
-        let numRounded = result.rounding(accordingToBehavior: behaviour)
         
-        */
-        
-        // update label
-        DispatchQueue.main.async {
-            self.changeRateView.convertedAmount.text = String(format:"%.2f", (amountToConvert * changeRate))
+        DispatchQueue.main.async { [weak self] in
+            self?.changeRateView.convertedAmount.text = String(format:"%.2f", (amountToConvert * changeRate))
         }
     }
 }
