@@ -13,6 +13,7 @@ class WeatherViewController: UIViewController {
     
     @IBOutlet weak var originWeatherView: CustomWeatherView!
     @IBOutlet weak var destinyWeatherView: CustomWeatherView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private var weatherView: WeatherView!
     private var weatherService = WeatherService()
@@ -26,6 +27,8 @@ class WeatherViewController: UIViewController {
     override func loadView() {
         super.loadView()
         weatherView = view as? WeatherView
+        let name = Notification.Name("WeatherLoaded")
+        NotificationCenter.default.addObserver(self, selector: #selector(weatherLoaded), name: name, object: nil)
     }
     
     override func viewDidLoad() {
@@ -37,6 +40,10 @@ class WeatherViewController: UIViewController {
     // MARK: - Methods
     
     private func showWeatherInformations(city: String, weatherView: CustomWeatherView) {
+        
+        originWeatherView.isHidden = true
+        destinyWeatherView.isHidden = true
+        activityIndicator.isHidden = false
         
         weatherService.getData(city: city) { result in
             switch result {
@@ -57,10 +64,19 @@ class WeatherViewController: UIViewController {
                 detailsValue: weatherDecode.weather.first?.description ?? "no value",
                 imageValue: weatherDecode.weather.first?.icon ?? "logo"
             )
+            let name = Notification.Name(rawValue: "WeatherLoaded")
+            let notification = Notification(name: name)
+            NotificationCenter.default.post(notification)
         }
     }
     
     private func kelvinToCelsius(kelvin: Double) -> String {
         return String(format:"%.1f", (kelvin - 273.15))
+    }
+    
+    @objc func weatherLoaded() {
+        activityIndicator.isHidden = true
+        originWeatherView.isHidden = false
+        destinyWeatherView.isHidden = false
     }
 }

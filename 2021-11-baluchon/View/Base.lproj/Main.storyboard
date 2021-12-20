@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="-308" y="396"/>
         </scene>
-        <!--Item-->
+        <!--Weather-->
         <scene sceneID="YfW-KZ-FHo">
             <objects>
                 <viewController id="Orz-0e-pce" customClass="WeatherViewController" customModule="_021_11_baluchon" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,7 +36,7 @@
                                 <rect key="frame" x="50" y="74" width="314" height="748"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKj-Zi-aPD" customClass="CustomWeatherView" customModule="_021_11_baluchon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="351.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="323"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjk-6W-ZaM">
                                                 <rect key="frame" x="10" y="10" width="294" height="20.5"/>
@@ -45,16 +45,16 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="fna-wP-5YK">
-                                                <rect key="frame" x="10" y="40.5" width="294" height="270.5"/>
+                                                <rect key="frame" x="10" y="40.5" width="294" height="242"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eil-RY-x0y">
-                                                        <rect key="frame" x="0.0" y="20.5" width="229.5" height="229.5"/>
+                                                        <rect key="frame" x="0.0" y="6.5" width="229.5" height="229.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="eil-RY-x0y" secondAttribute="height" multiplier="1:1" id="OEB-zM-nIv"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xe-X6-L4E">
-                                                        <rect key="frame" x="252.5" y="125" width="41.5" height="20.5"/>
+                                                        <rect key="frame" x="252.5" y="111" width="41.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -62,7 +62,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2GP-xL-T9c">
-                                                <rect key="frame" x="10" y="321" width="294" height="20.5"/>
+                                                <rect key="frame" x="10" y="292.5" width="294" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -88,8 +88,11 @@
                                             <outlet property="temperature" destination="5Xe-X6-L4E" id="4tr-HL-5tr"/>
                                         </connections>
                                     </view>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="57s-5o-D17">
+                                        <rect key="frame" x="0.0" y="343" width="314" height="37"/>
+                                    </activityIndicatorView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ubw-Fu-Xzr">
-                                        <rect key="frame" x="0.0" y="371.5" width="314" height="5"/>
+                                        <rect key="frame" x="0.0" y="400" width="314" height="5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="5" id="3as-Ln-aZD"/>
@@ -97,7 +100,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PN7-Ur-pqg" customClass="CustomWeatherView" customModule="_021_11_baluchon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="396.5" width="314" height="351.5"/>
+                                        <rect key="frame" x="0.0" y="425" width="314" height="323"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHO-LF-MGZ">
                                                 <rect key="frame" x="10" y="10" width="294" height="20.5"/>
@@ -106,16 +109,16 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="jhp-pp-R6b">
-                                                <rect key="frame" x="10" y="40.5" width="294" height="270.5"/>
+                                                <rect key="frame" x="10" y="40.5" width="294" height="242"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ngh-mx-Es0">
-                                                        <rect key="frame" x="0.0" y="44" width="183" height="183"/>
+                                                        <rect key="frame" x="0.0" y="29.5" width="183" height="183"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Ngh-mx-Es0" secondAttribute="height" multiplier="1:1" id="7MZ-cH-e6y"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIm-ji-BGW">
-                                                        <rect key="frame" x="206" y="125" width="88" height="20.5"/>
+                                                        <rect key="frame" x="206" y="111" width="88" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -123,7 +126,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXX-8L-MZT">
-                                                <rect key="frame" x="10" y="321" width="294" height="20.5"/>
+                                                <rect key="frame" x="10" y="292.5" width="294" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -172,9 +175,10 @@
                             <constraint firstItem="fqh-xA-5Nc" firstAttribute="leading" secondItem="do5-tL-RDc" secondAttribute="leading" constant="50" id="s3C-ng-bV8"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="sun.and.horizon.fill" catalog="system" id="14u-bg-bIF"/>
+                    <tabBarItem key="tabBarItem" title="Weather" image="sun.and.horizon.fill" catalog="system" id="14u-bg-bIF"/>
                     <navigationItem key="navigationItem" id="1Kt-FR-v93"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="57s-5o-D17" id="hpE-5O-PUN"/>
                         <outlet property="destinyWeatherView" destination="PN7-Ur-pqg" id="VaN-Tb-Yh1"/>
                         <outlet property="originWeatherView" destination="FKj-Zi-aPD" id="AKu-cH-z2c"/>
                     </connections>
