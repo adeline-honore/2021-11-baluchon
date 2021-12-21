@@ -13,19 +13,18 @@ enum WeatherRouter: RouterProtocol {
         "http://api.openweathermap.org/data/2.5/weather?"
     }
     
-    var accessKey: String {
-        "&appid=23b15536e795f12d8cf140cb43b8ab8e"
-    }
-    
-    case getWeather(parameter: String)
-    case getOtherThing(param1: String, param2: String)
+    case getWeather(cityName: String)
     
     func buildParams() -> URL? {
         switch self {
-        case .getWeather(let parameter):
-            return URL(string: baseURL+Constants.weatherCity+parameter+accessKey)
-        case .getOtherThing(let param1, let param2):
-            return nil
+        case .getWeather(let cityName):
+            var weatherComponents = URLComponents(string: baseURL)
+            
+            weatherComponents?.queryItems = [
+                URLQueryItem(name: "q", value: cityName),
+                URLQueryItem(name: "appid", value: "23b15536e795f12d8cf140cb43b8ab8e")
+            ]
+            return URL(string: weatherComponents?.string ?? "")
         }
     }
     

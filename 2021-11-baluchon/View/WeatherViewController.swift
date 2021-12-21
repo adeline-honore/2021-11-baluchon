@@ -15,8 +15,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var destinyWeatherView: CustomWeatherView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    private var weatherView: WeatherView!
-    private var weatherService = WeatherService()
+    private var weatherService: WeatherServiceProtocol = WeatherService()
     
     private let originCity: String = "Paris"
     private let destinationCity: String = "Nantes"
@@ -26,7 +25,6 @@ class WeatherViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        weatherView = view as? WeatherView
         let name = Notification.Name("WeatherLoaded")
         NotificationCenter.default.addObserver(self, selector: #selector(weatherLoaded), name: name, object: nil)
     }
@@ -41,8 +39,7 @@ class WeatherViewController: UIViewController {
     
     private func showWeatherInformations(city: String, weatherView: CustomWeatherView) {
         
-        originWeatherView.isHidden = true
-        destinyWeatherView.isHidden = true
+        weatherView.isHidden = true
         activityIndicator.isHidden = false
         
         weatherService.getData(city: city) { result in
@@ -56,11 +53,11 @@ class WeatherViewController: UIViewController {
     }
     
     private func update(weatherDecode: WeatherStructure, customView: CustomWeatherView) {
-        DispatchQueue.main.async { 
+        DispatchQueue.main.async { [weak self] in
             
             customView.configure(
                 cityNameValue: weatherDecode.name,
-                temperatureValue: self.kelvinToCelsius(kelvin: weatherDecode.main.temp),
+                temperatureValue: self?.kelvinToCelsius(kelvin: weatherDecode.main.temp) ?? "no value",
                 detailsValue: weatherDecode.weather.first?.description ?? "no value",
                 imageValue: weatherDecode.weather.first?.icon ?? "logo"
             )

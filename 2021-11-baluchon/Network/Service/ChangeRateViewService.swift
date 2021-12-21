@@ -13,7 +13,7 @@ class ChangeRateViewService {
     
     func getData(completionHandler: @escaping (Result<Fixer, Error>) -> ()) {
         
-        return network.callNetwork(router: ChangeRateRouter.getRate(parameter: "USD"), completionHandler: { result in
+        return network.callNetwork(router: ChangeRateRouter.getRate, completionHandler: { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let data):

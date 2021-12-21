@@ -11,8 +11,6 @@ import Foundation
 class Constants {
     
     static var weatherCity = "q="
-    
     static var symbolCurrency = "&symbols="
-    
 }
 

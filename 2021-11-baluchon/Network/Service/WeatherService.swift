@@ -13,7 +13,7 @@ class WeatherService: WeatherServiceProtocol {
     
     func getData(city: String,completionHandler: @escaping (Result<WeatherStructure, Error>) -> ()) {
         
-        network.callNetwork(router: WeatherRouter.getWeather(parameter: city)) { result in
+        network.callNetwork(router: WeatherRouter.getWeather(cityName: city)) { result in
             
             switch result {
             case .success(let data):

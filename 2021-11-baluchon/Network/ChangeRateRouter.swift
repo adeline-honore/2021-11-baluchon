@@ -10,23 +10,21 @@ import Foundation
 enum ChangeRateRouter: RouterProtocol {
     
     var baseURL: String {
-    "http://data.fixer.io/api/latest?access_key=7f3ca3bafe654134abd06e9450f7f720&symbols=USD"
+    "http://data.fixer.io/api/latest?"
     }
     
-    var accessKey: String {
-        "access_key=7f3ca3bafe654134abd06e9450f7f720"
-    }
-    
-    case getRate(parameter: String)
-    case getOtherThing(param1: String, param2: String)
-    
+    case getRate
     
     func buildParams() -> URL? {
         switch self {
-        case .getRate(let parameter):
-            return URL(string: baseURL+accessKey+Constants.symbolCurrency+parameter)
-        case .getOtherThing(let param1, let param2):
-            return nil
+        case .getRate:
+            var weatherComponents = URLComponents(string: baseURL)
+            
+            weatherComponents?.queryItems = [
+                URLQueryItem(name: "access_key", value: "7f3ca3bafe654134abd06e9450f7f720"),
+                URLQueryItem(name: "symbols", value: "USD")
+            ]
+            return URL(string: weatherComponents?.string ?? "")
         }
     }
     
