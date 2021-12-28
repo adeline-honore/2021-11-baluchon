@@ -8,5 +8,5 @@
 import Foundation
 
 protocol WeatherServiceProtocol {
-    func getData(city: String, completionHandler: @escaping (Result<WeatherStructure, Error>) -> ())
+    func getData(city: Int, completionHandler: @escaping (Result<WeatherStructure, Error>) -> ())
 }

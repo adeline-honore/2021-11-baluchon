@@ -11,9 +11,9 @@ class WeatherService: WeatherServiceProtocol {
     
     var network: NetworkProtocol = Network()
     
-    func getData(city: String,completionHandler: @escaping (Result<WeatherStructure, Error>) -> ()) {
+    func getData(city: Int,completionHandler: @escaping (Result<WeatherStructure, Error>) -> ()) {
         
-        network.callNetwork(router: WeatherRouter.getWeather(cityName: city)) { result in
+        network.callNetwork(router: WeatherRouter.getWeather(cityID: city)) { result in
             
             switch result {
             case .success(let data):

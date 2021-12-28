@@ -17,8 +17,8 @@ class WeatherViewController: UIViewController {
     
     private var weatherService: WeatherServiceProtocol = WeatherService()
     
-    private let originCity: String = "Paris"
-    private let destinationCity: String = "Nantes"
+    private let originCity: Int = 6690604
+    private let destinationCity: Int = 5128638
     
     
     // MARK: - Override
@@ -37,7 +37,7 @@ class WeatherViewController: UIViewController {
     
     // MARK: - Methods
     
-    private func showWeatherInformations(city: String, weatherView: CustomWeatherView) {
+    private func showWeatherInformations(city: Int, weatherView: CustomWeatherView) {
         
         weatherView.isHidden = true
         activityIndicator.isHidden = false
@@ -84,7 +84,7 @@ class WeatherViewController: UIViewController {
         if customView == originWeatherView {
             customView.backgroundColor = UIColor(patternImage: originWeatherImage).withAlphaComponent(0.5)
         } else {
-            customView.backgroundColor = UIColor(patternImage: destinyWeatherImage).withAlphaComponent(0.5)
+            customView.backgroundColor = UIColor(patternImage: destinyWeatherImage).withAlphaComponent(0.7)
         }
     }
     
