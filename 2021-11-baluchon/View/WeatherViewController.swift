@@ -53,22 +53,39 @@ class WeatherViewController: UIViewController {
     }
     
     private func update(weatherDecode: WeatherStructure, customView: CustomWeatherView) {
+        
         DispatchQueue.main.async { [weak self] in
             
             customView.configure(
                 cityNameValue: weatherDecode.name,
                 temperatureValue: self?.kelvinToCelsius(kelvin: weatherDecode.main.temp) ?? "no value",
-                detailsValue: weatherDecode.weather.first?.description ?? "no value",
+                detailsValue: String( weatherDecode.wind.speed),
                 imageValue: weatherDecode.weather.first?.icon ?? "logo"
             )
             let name = Notification.Name(rawValue: "WeatherLoaded")
             let notification = Notification(name: name)
             NotificationCenter.default.post(notification)
+            
+            self?.setCustomView(customView: customView)
         }
     }
     
     private func kelvinToCelsius(kelvin: Double) -> String {
-        return String(format:"%.1f", (kelvin - 273.15))
+        return String(format:"%.1f", (kelvin - 273.15)) + " °C"
+    }
+    
+    private func setCustomView(customView: CustomWeatherView) {
+        guard let originWeatherImage = UIImage(named: "originWeatherImage"),
+              let destinyWeatherImage = UIImage(named: "destinyWeatherImage") else
+              {
+                  return
+              }
+        
+        if customView == originWeatherView {
+            customView.backgroundColor = UIColor(patternImage: originWeatherImage).withAlphaComponent(0.5)
+        } else {
+            customView.backgroundColor = UIColor(patternImage: destinyWeatherImage).withAlphaComponent(0.5)
+        }
     }
     
     @objc func weatherLoaded() {
