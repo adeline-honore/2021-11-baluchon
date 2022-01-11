@@ -21,9 +21,12 @@ class ChangeRateViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        changeRateView.amountToConvert.becomeFirstResponder()
+        
         UserDefaults.standard.value(forKey: "timestampData")
         UserDefaults.standard.value(forKey: "rateData")
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
     // MARK: - IBAction
@@ -76,5 +79,10 @@ class ChangeRateViewController: UIViewController {
     private func setUserDefaults(timestampData: Int, rateData: Double) {
         UserDefaults.standard.set(timestampData, forKey: "timestampData")
         UserDefaults.standard.set(rateData, forKey: "rateData")
+    }
+    
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
