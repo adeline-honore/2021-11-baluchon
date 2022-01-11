@@ -293,6 +293,9 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Convert" id="xhn-2V-LQc"/>
+                    <connections>
+                        <outlet property="keyboardHeightLayoutConstraint" destination="LQG-Yn-XLk" id="cN5-R7-rVO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fIa-5a-bAE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
