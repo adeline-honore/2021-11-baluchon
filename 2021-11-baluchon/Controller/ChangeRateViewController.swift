@@ -11,7 +11,7 @@ class ChangeRateViewController: UIViewController {
     
     // MARK: - Properties
     private var changeRateView: ChangeRateView!
-    private var changeRateService = ChangeRateViewService()
+    private var changeRateService = ChangeRateService()
     
     // MARK: - Override
     override func loadView() {

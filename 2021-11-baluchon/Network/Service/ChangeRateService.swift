@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ChangeRateViewService {
+class ChangeRateService: ChangeRateServiceProtocol {
     
     var network: NetworkProtocol = Network()
     
