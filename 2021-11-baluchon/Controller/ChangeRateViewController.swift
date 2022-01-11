@@ -21,6 +21,9 @@ class ChangeRateViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        changeRateView.amountToConvert.becomeFirstResponder()
+        UserDefaults.standard.value(forKey: "timestampData")
+        UserDefaults.standard.value(forKey: "rateData")
     }
     
     // MARK: - IBAction
@@ -31,19 +34,31 @@ class ChangeRateViewController: UIViewController {
     
     // MARK: - Methods
     private func convertAmount() {
+       
+        let timestampNow = Int(Date().timeIntervalSince1970)
         
-        changeRateService.getData { result in
-            
-            switch result { 
-            case .success(let fixer):
-                self.update(fixer: fixer)
-            case .failure:
-                self.errorMessage(element: .network)
+        guard let amountToConvert = Double(changeRateView.amountToConvert.text ?? "") else {
+            errorMessage(element: .noAmount)
+            return
+        }
+        
+        if timestampNow == UserDefaults.standard.value(forKey: "timestampData") as! Int {
+            changeRateView.convertedAmount.text = String(format:"%.2f", (amountToConvert * (UserDefaults.standard.value(forKey: "rateData") as! Double))) + " $"
+        } else {
+            changeRateService.getData { result in
+                
+                switch result {
+                case .success(let fixer):
+                    self.update(fixer: fixer)
+                case .failure:
+                    self.errorMessage(element: .network)
+                }
             }
         }
     }
     
     private func update(fixer: Fixer) {
+        
         let changeRate = fixer.rates["USD"] ?? 0.0
         
         guard let amountToConvert = Double(changeRateView.amountToConvert.text ?? "") else {
@@ -52,7 +67,14 @@ class ChangeRateViewController: UIViewController {
         }
         
         DispatchQueue.main.async { [weak self] in
-            self?.changeRateView.convertedAmount.text = String(format:"%.2f", (amountToConvert * changeRate))
+            self?.changeRateView.convertedAmount.text = String(format:"%.2f", (amountToConvert * changeRate)) + " $"
         }
+        
+        setUserDefaults(timestampData: fixer.timestamp, rateData: changeRate)
+    }
+    
+    private func setUserDefaults(timestampData: Int, rateData: Double) {
+        UserDefaults.standard.set(timestampData, forKey: "timestampData")
+        UserDefaults.standard.set(rateData, forKey: "rateData")
     }
 }

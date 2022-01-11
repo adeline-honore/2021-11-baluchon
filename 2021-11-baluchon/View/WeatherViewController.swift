@@ -59,7 +59,7 @@ class WeatherViewController: UIViewController {
             customView.configure(
                 cityNameValue: weatherDecode.name,
                 temperatureValue: self?.kelvinToCelsius(kelvin: weatherDecode.main.temp) ?? "no value",
-                detailsValue: String( weatherDecode.wind.speed),
+                detailsValue: self?.windSpeedCalculation(speed: weatherDecode.wind.speed) ?? "no value",
                 imageValue: weatherDecode.weather.first?.icon ?? "logo"
             )
             let name = Notification.Name(rawValue: "WeatherLoaded")
@@ -72,6 +72,10 @@ class WeatherViewController: UIViewController {
     
     private func kelvinToCelsius(kelvin: Double) -> String {
         return String(format:"%.1f", (kelvin - 273.15)) + " °C"
+    }
+    
+    private func windSpeedCalculation(speed: Double) -> String {
+        return "wind speed : " + String(format:"%.0f", (speed * 3.6)) + " km/h"
     }
     
     private func setCustomView(customView: CustomWeatherView) {

@@ -10,4 +10,8 @@ import UIKit
 class ChangeRateView: UIView {
     @IBOutlet weak var amountToConvert: UITextField!
     @IBOutlet weak var convertedAmount: UILabel!
+    
+    func test() {
+        amountToConvert.becomeFirstResponder()
+    }
 }
