@@ -11,12 +11,40 @@
         <!--Translate-->
         <scene sceneID="vOT-U3-qYy">
             <objects>
-                <viewController id="boA-P2-c03" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="h8F-bc-lL3">
+                <viewController id="boA-P2-c03" customClass="TranslateViewController" customModule="_021_11_baluchon" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h8F-bc-lL3" customClass="TranslateView" customModule="_021_11_baluchon" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entrer the text in english" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q6b-jI-APV">
+                                <rect key="frame" x="172" y="214" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3YC-ZK-9EL">
+                                <rect key="frame" x="186" y="371" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AmO-OU-jh2">
+                                <rect key="frame" x="143" y="618" width="130" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Press to convert"/>
+                                <connections>
+                                    <action selector="didTapTranslateButton" destination="boA-P2-c03" eventType="touchUpInside" id="2Xr-01-Syu"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="KEx-Px-7jQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="textToTranslate" destination="Q6b-jI-APV" id="M1d-Lb-iT1"/>
+                            <outlet property="translatedText" destination="3YC-ZK-9EL" id="AiT-y9-A2K"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Translate" id="krh-BX-er4"/>
                 </viewController>
