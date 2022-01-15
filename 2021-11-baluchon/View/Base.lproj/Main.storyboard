@@ -249,19 +249,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3Xk-oV-sNm">
-                                <rect key="frame" x="30" y="98" width="354" height="615"/>
+                                <rect key="frame" x="30" y="98" width="354" height="699"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uxz-kQ-KzZ">
-                                        <rect key="frame" x="134.5" y="0.0" width="219.5" height="252.5"/>
+                                        <rect key="frame" x="134.5" y="0.0" width="219.5" height="294.5"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter a number" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yIX-FP-ptN">
-                                                <rect key="frame" x="0.0" y="0.0" width="195.5" height="252.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="195.5" height="294.5"/>
                                                 <color key="textColor" red="0.86542302370000002" green="0.39235061409999999" blue="0.22289600970000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7s-AV-QOs">
-                                                <rect key="frame" x="200.5" y="0.0" width="19" height="252.5"/>
+                                                <rect key="frame" x="200.5" y="0.0" width="19" height="294.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="textColor" red="0.86542302370000002" green="0.39235061409999999" blue="0.22289600970000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -272,10 +272,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bF3-Ur-bCK">
-                                        <rect key="frame" x="124" y="272.5" width="230" height="252.5"/>
+                                        <rect key="frame" x="124" y="314.5" width="230" height="294.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJw-Ye-dWs">
-                                                <rect key="frame" x="0.0" y="0.0" width="230" height="252.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="230" height="294.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                 <color key="textColor" red="0.86542302370000002" green="0.39235061409999999" blue="0.22289600970000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -283,7 +283,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mcq-SG-Ugm">
-                                        <rect key="frame" x="0.0" y="545" width="354" height="70"/>
+                                        <rect key="frame" x="0.0" y="629" width="354" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="Eoq-ih-gn3"/>
                                         </constraints>
@@ -310,7 +310,7 @@
                         <viewLayoutGuide key="safeArea" id="sKa-Vx-8Ly"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="sKa-Vx-8Ly" firstAttribute="bottom" secondItem="3Xk-oV-sNm" secondAttribute="bottom" constant="100" id="LQG-Yn-XLk"/>
+                            <constraint firstItem="sKa-Vx-8Ly" firstAttribute="bottom" secondItem="3Xk-oV-sNm" secondAttribute="bottom" constant="16" id="LQG-Yn-XLk"/>
                             <constraint firstItem="3Xk-oV-sNm" firstAttribute="leading" secondItem="sKa-Vx-8Ly" secondAttribute="leading" constant="30" id="Mfo-3o-M0u"/>
                             <constraint firstItem="sKa-Vx-8Ly" firstAttribute="trailing" secondItem="3Xk-oV-sNm" secondAttribute="trailing" constant="30" id="hmI-kO-GVn"/>
                             <constraint firstItem="3Xk-oV-sNm" firstAttribute="top" secondItem="sKa-Vx-8Ly" secondAttribute="top" constant="10" id="m7T-Fd-llc"/>

@@ -20,7 +20,7 @@ class ChangeRateViewController: UIViewController {
         super.loadView()
         changeRateView = view as? ChangeRateView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,9 +29,9 @@ class ChangeRateViewController: UIViewController {
         
         // keyboard height layout constraint
         NotificationCenter.default.addObserver(self,
-               selector: #selector(self.keyboardNotification(notification:)),
-               name: UIResponder.keyboardWillChangeFrameNotification,
-               object: nil)
+                                               selector: #selector(self.keyboardNotification(notification:)),
+                                               name: UIResponder.keyboardWillChangeFrameNotification,
+                                               object: nil)
         
         // display and dismiss keyboard
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
@@ -46,7 +46,7 @@ class ChangeRateViewController: UIViewController {
     
     // MARK: - Methods
     private func convertAmount() {
-       
+        
         let timestampNow = Int(Date().timeIntervalSince1970)
         
         guard let amountToConvert = Double(changeRateView.amountToConvert.text ?? "") else {
@@ -91,32 +91,32 @@ class ChangeRateViewController: UIViewController {
     }
     
     deinit {
-         NotificationCenter.default.removeObserver(self)
-       }
-     
-       @objc func keyboardNotification(notification: NSNotification) {
-         guard let userInfo = notification.userInfo else { return }
-
-         let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-         let endFrameY = endFrame?.origin.y ?? 0
-         let duration:TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
-         let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
-         let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
-         let animationCurve:UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
-
-         if endFrameY >= UIScreen.main.bounds.size.height {
-           self.keyboardHeightLayoutConstraint?.constant = 0.0
-         } else {
-           self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
-         }
-
-         UIView.animate(
-           withDuration: duration,
-           delay: TimeInterval(0),
-           options: animationCurve,
-           animations: { self.view.layoutIfNeeded() },
-           completion: nil)
-       }
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardNotification(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        
+        let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+        let endFrameY = endFrame?.origin.y ?? 0
+        let duration:TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+        let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
+        let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
+        let animationCurve:UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
+        
+        if endFrameY >= UIScreen.main.bounds.size.height {
+            self.keyboardHeightLayoutConstraint?.constant = 16.0
+        } else {
+            self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 16.0
+        }
+        
+        UIView.animate(
+            withDuration: duration,
+            delay: TimeInterval(0),
+            options: animationCurve,
+            animations: { self.view.layoutIfNeeded() },
+            completion: nil)
+    }
     
     @objc func dismissKeyboard() {
         view.endEditing(true)

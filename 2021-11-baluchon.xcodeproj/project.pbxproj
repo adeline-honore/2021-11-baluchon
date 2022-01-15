@@ -36,6 +36,10 @@
 		6EBBEB7D274D1BAB004C4940 /* Fixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBBEB7C274D1BAB004C4940 /* Fixer.swift */; };
 		6EFA4ED92792F8A400604634 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFA4ED82792F8A300604634 /* TranslateViewController.swift */; };
 		6EFA4EDB2792F8E600604634 /* TranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFA4EDA2792F8E600604634 /* TranslateView.swift */; };
+		6EFA4EDD2792FBA800604634 /* TranslateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFA4EDC2792FBA800604634 /* TranslateService.swift */; };
+		6EFA4EDF2792FBEC00604634 /* TranslateServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFA4EDE2792FBEC00604634 /* TranslateServiceProtocol.swift */; };
+		6EFA4EE12792FC6D00604634 /* TranslateStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFA4EE02792FC6D00604634 /* TranslateStructure.swift */; };
+		6EFA4EE52792FD8200604634 /* TranslateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EFA4EE42792FD8200604634 /* TranslateRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +93,10 @@
 		6EBBEB7C274D1BAB004C4940 /* Fixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixer.swift; sourceTree = "<group>"; };
 		6EFA4ED82792F8A300604634 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslateViewController.swift; path = "2021-11-baluchon/Controller/TranslateViewController.swift"; sourceTree = SOURCE_ROOT; };
 		6EFA4EDA2792F8E600604634 /* TranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateView.swift; sourceTree = "<group>"; };
+		6EFA4EDC2792FBA800604634 /* TranslateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateService.swift; sourceTree = "<group>"; };
+		6EFA4EDE2792FBEC00604634 /* TranslateServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateServiceProtocol.swift; sourceTree = "<group>"; };
+		6EFA4EE02792FC6D00604634 /* TranslateStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateStructure.swift; sourceTree = "<group>"; };
+		6EFA4EE42792FD8200604634 /* TranslateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +207,7 @@
 			children = (
 				6E6D79B0274D629B0039A53B /* WeatherStructure.swift */,
 				6EBBEB7C274D1BAB004C4940 /* Fixer.swift */,
+				6EFA4EE02792FC6D00604634 /* TranslateStructure.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -212,8 +221,10 @@
 				6EBBEB6F274D18DF004C4940 /* RouterProtocol.swift */,
 				6EBBEB71274D193C004C4940 /* ChangeRateRouter.swift */,
 				6E6D79B6274D65960039A53B /* WeatherRouter.swift */,
+				6EFA4EE42792FD8200604634 /* TranslateRouter.swift */,
 				6E6D79B4274D64450039A53B /* WeatherServiceProtocol.swift */,
 				6E72DB17278DBC0C00042103 /* ChangeRateServiceProtocol.swift */,
+				6EFA4EDE2792FBEC00604634 /* TranslateServiceProtocol.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -222,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				6EBBEB69274D14FC004C4940 /* ChangeRateService.swift */,
+				6EFA4EDC2792FBA800604634 /* TranslateService.swift */,
 				6E6D79B2274D62B60039A53B /* WeatherService.swift */,
 			);
 			path = Service;
@@ -382,11 +394,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EFA4EDD2792FBA800604634 /* TranslateService.swift in Sources */,
 				6E6D79B1274D629B0039A53B /* WeatherStructure.swift in Sources */,
 				6EBBEB7D274D1BAB004C4940 /* Fixer.swift in Sources */,
 				6EBBEB70274D18DF004C4940 /* RouterProtocol.swift in Sources */,
 				6EBBEB7B274D1AA6004C4940 /* UIViewController+Extension.swift in Sources */,
 				6EBBEB75274D19A4004C4940 /* Constants.swift in Sources */,
+				6EFA4EDF2792FBEC00604634 /* TranslateServiceProtocol.swift in Sources */,
 				6E6D79AF274D62800039A53B /* WeatherViewController.swift in Sources */,
 				6EBBEB6A274D14FC004C4940 /* ChangeRateService.swift in Sources */,
 				6EFA4ED92792F8A400604634 /* TranslateViewController.swift in Sources */,
@@ -395,7 +409,9 @@
 				6EBBEB66274D1465004C4940 /* ChangeRateView.swift in Sources */,
 				6E6D79B5274D64450039A53B /* WeatherServiceProtocol.swift in Sources */,
 				6E6D79B7274D65960039A53B /* WeatherRouter.swift in Sources */,
+				6EFA4EE52792FD8200604634 /* TranslateRouter.swift in Sources */,
 				6EFA4EDB2792F8E600604634 /* TranslateView.swift in Sources */,
+				6EFA4EE12792FC6D00604634 /* TranslateStructure.swift in Sources */,
 				6E6D79B3274D62B60039A53B /* WeatherService.swift in Sources */,
 				6E0A2E27273A841A005DD81B /* AppDelegate.swift in Sources */,
 				6E0A2E29273A841A005DD81B /* SceneDelegate.swift in Sources */,

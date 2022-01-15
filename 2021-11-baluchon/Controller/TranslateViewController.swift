@@ -11,6 +11,7 @@ class TranslateViewController: UIViewController {
     
     // MARK: - Properties
     private var translateView: TranslateView!
+    private var translateService: TranslateServiceProtocol = TranslateService()
     
     
     
@@ -22,7 +23,6 @@ class TranslateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     // MARK: - IBAction
@@ -31,14 +31,29 @@ class TranslateViewController: UIViewController {
         translateText()
     }
     
-    
-    
-    
     // MARK: - Methods
 
     private func translateText() {
         
+        guard let text = translateView.textToTranslate.text else {
+            return errorMessage(element: .noAmount)
+        }
+        
+        translateService.getData(text: text) { result in
+            
+            switch result {
+            case .success(let response):
+                self.getTranslation(response: response)
+            case .failure:
+                self.errorMessage(element: .network)
+            }
+        }
     }
     
-
+    private func getTranslation(response: TranslateStructure) {
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.translateView.translatedText.text = response.data.translations.first?.translatedText
+        }
+    }
 }
