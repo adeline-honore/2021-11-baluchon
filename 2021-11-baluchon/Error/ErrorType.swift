@@ -8,19 +8,19 @@
 import Foundation
 
 enum ErrorType: Error {
-    case noAmount
+    case empty
     case network
     case multiDecimal
     
     
     var message: String {
         switch self {
-        case .noAmount:
-            return "No amount in text field"
+        case .empty:
+            return "Text field is empty !"
         case .network:
-            return "Oups!, no return from API"
+            return "Oups!, no return from API ."
         case .multiDecimal:
-            return "Oups!, multi decimal"
+            return "Oups!, multi decimal ."
         }
     }
 }

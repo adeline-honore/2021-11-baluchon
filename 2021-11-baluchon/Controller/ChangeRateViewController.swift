@@ -11,7 +11,7 @@ class ChangeRateViewController: UIViewController {
     
     // MARK: - Properties
     private var changeRateView: ChangeRateView!
-    private var changeRateService = ChangeRateService()
+    private var changeRateService = ChangeRateService(network: Network())
     
     @IBOutlet weak var keyboardHeightLayoutConstraint: NSLayoutConstraint!
     
@@ -50,7 +50,7 @@ class ChangeRateViewController: UIViewController {
         let timestampNow = Int(Date().timeIntervalSince1970)
         
         guard let amountToConvert = Double(changeRateView.amountToConvert.text ?? "") else {
-            errorMessage(element: .noAmount)
+            errorMessage(element: .empty)
             return
         }
         
@@ -74,7 +74,7 @@ class ChangeRateViewController: UIViewController {
         let changeRate = fixer.rates["USD"] ?? 0.0
         
         guard let amountToConvert = Double(changeRateView.amountToConvert.text ?? "") else {
-            errorMessage(element: .noAmount)
+            errorMessage(element: .empty)
             return
         }
         

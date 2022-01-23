@@ -9,7 +9,12 @@ import Foundation
 
 class WeatherService: WeatherServiceProtocol {
     
-    var network: NetworkProtocol = Network()
+    //var network: NetworkProtocol = Network()
+    private var network: NetworkProtocol
+        
+    init(network: NetworkProtocol) {
+        self.network = network
+    }
     
     func getData(city: Int,completionHandler: @escaping (Result<WeatherStructure, Error>) -> ()) {
         

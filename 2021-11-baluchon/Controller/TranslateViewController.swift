@@ -11,7 +11,7 @@ class TranslateViewController: UIViewController {
     
     // MARK: - Properties
     private var translateView: TranslateView!
-    private var translateService: TranslateServiceProtocol = TranslateService()
+    private var translateService: TranslateServiceProtocol = TranslateService(network: Network())
     
     
     
@@ -36,7 +36,7 @@ class TranslateViewController: UIViewController {
     private func translateText() {
         
         guard let text = translateView.textToTranslate.text else {
-            return errorMessage(element: .noAmount)
+            return errorMessage(element: .empty)
         }
         
         translateService.getData(text: text) { result in

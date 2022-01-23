@@ -9,7 +9,11 @@ import Foundation
 
 class TranslateService: TranslateServiceProtocol {
     
-    var network: NetworkProtocol = Network()
+    private var network: NetworkProtocol
+        
+    init(network: NetworkProtocol) {
+        self.network = network
+    }
     
     func getData(text: String, completionHandler: @escaping (Result<TranslateStructure, Error>) -> ()) {
         

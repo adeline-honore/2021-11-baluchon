@@ -15,7 +15,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var destinyWeatherView: CustomWeatherView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    private var weatherService: WeatherServiceProtocol = WeatherService()
+    private var weatherService: WeatherServiceProtocol = WeatherService(network: Network())
     
     private let originCity: Int = 6690604
     private let destinationCity: Int = 5128638

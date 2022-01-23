@@ -9,7 +9,11 @@ import Foundation
 
 class ChangeRateService: ChangeRateServiceProtocol {
     
-    var network: NetworkProtocol = Network()
+    private var network: NetworkProtocol
+        
+    init(network: NetworkProtocol) {
+        self.network = network
+    }
     
     func getData(completionHandler: @escaping (Result<Fixer, Error>) -> ()) {
         
