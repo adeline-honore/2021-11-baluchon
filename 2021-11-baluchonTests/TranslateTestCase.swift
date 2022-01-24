@@ -22,7 +22,7 @@ class TranslateTestCase: XCTestCase {
     
     override func tearDown() {
         super.setUp()
-        //weather = nil
+        //translate = nil
     }
 
     func testWeatherShouldPostFailedCallbackIfResulIsNil() {

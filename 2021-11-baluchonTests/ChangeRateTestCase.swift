@@ -9,10 +9,21 @@
 import XCTest
 
 class ChangeRateTestCase: XCTestCase {
+    
+    // Given
+    var changeRate = ChangeRateService(network: NetworkFake(testCase: .changeRate))
+    
+    override func setUp() {
+        super.setUp()
+        changeRate = ChangeRateService(network: NetworkFake(testCase: .changeRate))
+    }
+    
+    override func tearDown() {
+        super.setUp()
+        //changeRate = nil
+    }
 
     func testChangeRateShouldPostFailedCallbackIfResulIsNil() {
-        // Given
-        let changeRate = ChangeRateService(network: NetworkFake(testCase: .changeRate))
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change")
         // Then
@@ -24,8 +35,6 @@ class ChangeRateTestCase: XCTestCase {
     }
     
     func testChangeRateShouldPostFailedCallbackIfIncorrectData() {
-        // Given
-        let changeRate = ChangeRateService(network: NetworkFake(testCase: .changeRate))
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change")
         // Then
@@ -38,8 +47,6 @@ class ChangeRateTestCase: XCTestCase {
     }
     
     func testChangeRateShouldPostSuccess() {
-        // Given
-        let changeRate = ChangeRateService(network: NetworkFake(testCase: .changeRate))
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change")
         // Then
