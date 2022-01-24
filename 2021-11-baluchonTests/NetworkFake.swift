@@ -8,22 +8,6 @@
 import Foundation
 @testable import _021_11_baluchon
 
-enum TestCase {
-    case changeRate
-    case weather
-    case translate
-    var resource: String {
-        switch self {
-        case .changeRate:
-            return "ChangeRate"
-        case .weather:
-            return "Weather"
-        case .translate:
-            return "Translate"
-        }
-    }
-}
-
 class NetworkFake: NetworkProtocol {
     
     private let testCase : TestCase
@@ -44,6 +28,4 @@ class NetworkFake: NetworkProtocol {
         
         completionHandler(.success(data))
     }
-    
-    
 }
