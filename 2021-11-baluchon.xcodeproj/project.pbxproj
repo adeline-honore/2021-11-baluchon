@@ -29,6 +29,7 @@
 		6EB7E724279D5E470032A0D3 /* Weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EB7E723279D5E470032A0D3 /* Weather.json */; };
 		6EB7E728279D61BE0032A0D3 /* TranslateTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB7E727279D61BE0032A0D3 /* TranslateTestCase.swift */; };
 		6EB7E72A279D630C0032A0D3 /* Translate.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EB7E729279D630C0032A0D3 /* Translate.json */; };
+		6EB7E72E279D6E280032A0D3 /* ReferenceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB7E72D279D6E280032A0D3 /* ReferenceButton.swift */; };
 		6EBBEB64274D1446004C4940 /* ChangeRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBBEB63274D1446004C4940 /* ChangeRateViewController.swift */; };
 		6EBBEB66274D1465004C4940 /* ChangeRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBBEB65274D1465004C4940 /* ChangeRateView.swift */; };
 		6EBBEB6A274D14FC004C4940 /* ChangeRateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBBEB69274D14FC004C4940 /* ChangeRateService.swift */; };
@@ -92,6 +93,7 @@
 		6EB7E723279D5E470032A0D3 /* Weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Weather.json; sourceTree = "<group>"; };
 		6EB7E727279D61BE0032A0D3 /* TranslateTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateTestCase.swift; sourceTree = "<group>"; };
 		6EB7E729279D630C0032A0D3 /* Translate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Translate.json; sourceTree = "<group>"; };
+		6EB7E72D279D6E280032A0D3 /* ReferenceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceButton.swift; sourceTree = "<group>"; };
 		6EBBEB63274D1446004C4940 /* ChangeRateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeRateViewController.swift; sourceTree = "<group>"; };
 		6EBBEB65274D1465004C4940 /* ChangeRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChangeRateView.swift; path = "2021-11-baluchon/Controller/ChangeRateView.swift"; sourceTree = SOURCE_ROOT; };
 		6EBBEB69274D14FC004C4940 /* ChangeRateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeRateService.swift; sourceTree = "<group>"; };
@@ -204,8 +206,9 @@
 			children = (
 				6E0A2E2C273A841A005DD81B /* Main.storyboard */,
 				6EBBEB65274D1465004C4940 /* ChangeRateView.swift */,
-				6E7D991427615A930047A9A3 /* CustomWeatherView.swift */,
 				6EFA4EDA2792F8E600604634 /* TranslateView.swift */,
+				6E7D991427615A930047A9A3 /* CustomWeatherView.swift */,
+				6EB7E72D279D6E280032A0D3 /* ReferenceButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				6EBBEB72274D193C004C4940 /* ChangeRateRouter.swift in Sources */,
 				6E72DB18278DBC0C00042103 /* ChangeRateServiceProtocol.swift in Sources */,
 				6EBBEB66274D1465004C4940 /* ChangeRateView.swift in Sources */,
+				6EB7E72E279D6E280032A0D3 /* ReferenceButton.swift in Sources */,
 				6E6D79B5274D64450039A53B /* WeatherServiceProtocol.swift in Sources */,
 				6E6D79B7274D65960039A53B /* WeatherRouter.swift in Sources */,
 				6EFA4EE52792FD8200604634 /* TranslateRouter.swift in Sources */,

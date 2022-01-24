@@ -16,31 +16,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entrer the text in english" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q6b-jI-APV">
-                                <rect key="frame" x="172" y="214" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3YC-ZK-9EL">
-                                <rect key="frame" x="186" y="371" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AmO-OU-jh2">
-                                <rect key="frame" x="143" y="618" width="130" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Press to convert"/>
-                                <connections>
-                                    <action selector="didTapTranslateButton" destination="boA-P2-c03" eventType="touchUpInside" id="2Xr-01-Syu"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wMl-bN-esf">
+                                <rect key="frame" x="30" y="98" width="354" height="699"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QzX-M9-uCd">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="294.5"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entrer the text in english" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q6b-jI-APV">
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="294.5"/>
+                                                <color key="textColor" red="0.86542302370000002" green="0.39235061409999999" blue="0.22289600970000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="yes"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tgA-EI-ijg">
+                                        <rect key="frame" x="0.0" y="314.5" width="354" height="294.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3YC-ZK-9EL">
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="294.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                <color key="textColor" red="0.86542302370000002" green="0.39235061409999999" blue="0.22289600970000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AmO-OU-jh2" customClass="ReferenceButton" customModule="_021_11_baluchon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="629" width="354" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="aDD-gc-tD9"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Press to translate"/>
+                                        <connections>
+                                            <action selector="didTapTranslateButton" destination="boA-P2-c03" eventType="touchUpInside" id="2Xr-01-Syu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="AmO-OU-jh2" secondAttribute="trailing" id="Baf-ij-vDz"/>
+                                    <constraint firstAttribute="trailing" secondItem="tgA-EI-ijg" secondAttribute="trailing" id="Gyq-qI-O1Z"/>
+                                    <constraint firstItem="AmO-OU-jh2" firstAttribute="top" secondItem="tgA-EI-ijg" secondAttribute="bottom" constant="20" id="SfF-4f-VNu"/>
+                                    <constraint firstItem="QzX-M9-uCd" firstAttribute="leading" secondItem="wMl-bN-esf" secondAttribute="leading" id="W2M-QQ-n7o"/>
+                                    <constraint firstItem="tgA-EI-ijg" firstAttribute="height" secondItem="QzX-M9-uCd" secondAttribute="height" id="ZXo-c7-fNZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="QzX-M9-uCd" secondAttribute="trailing" id="cfi-5Z-lFi"/>
+                                    <constraint firstItem="tgA-EI-ijg" firstAttribute="leading" secondItem="wMl-bN-esf" secondAttribute="leading" id="eSE-cl-H9a"/>
+                                    <constraint firstItem="tgA-EI-ijg" firstAttribute="top" secondItem="QzX-M9-uCd" secondAttribute="bottom" constant="20" id="fVB-M6-LND"/>
+                                    <constraint firstItem="AmO-OU-jh2" firstAttribute="leading" secondItem="wMl-bN-esf" secondAttribute="leading" id="jbB-St-Z13"/>
+                                    <constraint firstItem="QzX-M9-uCd" firstAttribute="height" secondItem="tgA-EI-ijg" secondAttribute="height" id="mUa-tP-KU4"/>
+                                    <constraint firstItem="QzX-M9-uCd" firstAttribute="top" secondItem="wMl-bN-esf" secondAttribute="top" id="nxw-xA-ymh"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KEx-Px-7jQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wMl-bN-esf" firstAttribute="top" secondItem="KEx-Px-7jQ" secondAttribute="top" constant="10" id="XYY-fG-m2I"/>
+                            <constraint firstItem="KEx-Px-7jQ" firstAttribute="bottom" secondItem="wMl-bN-esf" secondAttribute="bottom" constant="16" id="d59-fY-9lr"/>
+                            <constraint firstItem="KEx-Px-7jQ" firstAttribute="trailing" secondItem="wMl-bN-esf" secondAttribute="trailing" constant="30" id="eyp-Dw-vKz"/>
+                            <constraint firstItem="wMl-bN-esf" firstAttribute="leading" secondItem="KEx-Px-7jQ" secondAttribute="leading" constant="30" id="faf-FY-Uzt"/>
+                        </constraints>
                         <connections>
                             <outlet property="textToTranslate" destination="Q6b-jI-APV" id="M1d-Lb-iT1"/>
                             <outlet property="translatedText" destination="3YC-ZK-9EL" id="AiT-y9-A2K"/>
@@ -61,7 +96,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="fqh-xA-5Nc">
-                                <rect key="frame" x="0.0" y="98" width="414" height="705"/>
+                                <rect key="frame" x="0.0" y="98" width="414" height="699"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKj-Zi-aPD" customClass="CustomWeatherView" customModule="_021_11_baluchon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="325.5"/>
@@ -129,10 +164,10 @@
                                         </connections>
                                     </view>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="57s-5o-D17">
-                                        <rect key="frame" x="0.0" y="326.5" width="414" height="46"/>
+                                        <rect key="frame" x="0.0" y="326.5" width="414" height="40"/>
                                     </activityIndicatorView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ubw-Fu-Xzr">
-                                        <rect key="frame" x="0.0" y="373.5" width="414" height="5"/>
+                                        <rect key="frame" x="0.0" y="367.5" width="414" height="5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="5" id="3as-Ln-aZD"/>
@@ -140,7 +175,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PN7-Ur-pqg" customClass="CustomWeatherView" customModule="_021_11_baluchon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="379.5" width="414" height="325.5"/>
+                                        <rect key="frame" x="0.0" y="373.5" width="414" height="325.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHO-LF-MGZ">
                                                 <rect key="frame" x="10" y="10" width="394" height="40"/>
@@ -222,7 +257,7 @@
                         <viewLayoutGuide key="safeArea" id="do5-tL-RDc"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="do5-tL-RDc" firstAttribute="bottom" secondItem="fqh-xA-5Nc" secondAttribute="bottom" constant="10" id="2tL-D0-FY0"/>
+                            <constraint firstItem="do5-tL-RDc" firstAttribute="bottom" secondItem="fqh-xA-5Nc" secondAttribute="bottom" constant="16" id="2tL-D0-FY0"/>
                             <constraint firstItem="fqh-xA-5Nc" firstAttribute="top" secondItem="do5-tL-RDc" secondAttribute="top" constant="10" id="IXT-Fw-Ach"/>
                             <constraint firstItem="do5-tL-RDc" firstAttribute="trailing" secondItem="fqh-xA-5Nc" secondAttribute="trailing" id="UFk-8n-zs1"/>
                             <constraint firstItem="fqh-xA-5Nc" firstAttribute="leading" secondItem="do5-tL-RDc" secondAttribute="leading" id="ce2-l5-85a"/>
@@ -282,7 +317,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mcq-SG-Ugm">
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mcq-SG-Ugm" customClass="ReferenceButton" customModule="_021_11_baluchon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="629" width="354" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="Eoq-ih-gn3"/>
@@ -389,11 +424,11 @@
             </objects>
             <point key="canvasLocation" x="-726.08695652173924" y="1325.8928571428571"/>
         </scene>
-        <!--Item 2-->
+        <!--Translate-->
         <scene sceneID="z55-sr-AWJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hUr-ao-PaV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="vLT-EF-8df"/>
+                    <tabBarItem key="tabBarItem" title="Translate" image="pencil.circle.fill" catalog="system" id="vLT-EF-8df"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="G7z-EY-zLE">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -411,6 +446,7 @@
     </scenes>
     <resources>
         <image name="dollarsign.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <image name="sun.and.horizon.fill" catalog="system" width="128" height="80"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
