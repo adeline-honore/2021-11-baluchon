@@ -317,28 +317,23 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mcq-SG-Ugm" customClass="ReferenceButton" customModule="_021_11_baluchon" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNK-vJ-TI9" customClass="ReferenceButton" customModule="_021_11_baluchon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="629" width="354" height="70"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="Eoq-ih-gn3"/>
+                                            <constraint firstAttribute="height" constant="70" id="cgP-lg-GUn"/>
                                         </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Press to convert" cornerStyle="capsule">
-                                            <backgroundConfiguration key="background">
-                                                <color key="strokeColor" red="0.86542302370000002" green="0.39235061409999999" blue="0.22289600970000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </backgroundConfiguration>
-                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="20"/>
-                                            <color key="baseForegroundColor" red="0.86542302370000002" green="0.39235061409999999" blue="0.22289600970000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </buttonConfiguration>
+                                        <buttonConfiguration key="configuration" style="plain" title="Press to convert"/>
                                         <connections>
-                                            <action selector="didTapChangeCurrencyButton" destination="VJs-mo-ApV" eventType="touchUpInside" id="xdO-hH-Nq7"/>
+                                            <action selector="didTapChangeCurrencyButton" destination="VJs-mo-ApV" eventType="touchUpInside" id="ZCb-IS-i80"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Mcq-SG-Ugm" firstAttribute="centerX" secondItem="3Xk-oV-sNm" secondAttribute="centerX" id="K5k-1W-SRY"/>
+                                    <constraint firstItem="MNK-vJ-TI9" firstAttribute="top" secondItem="bF3-Ur-bCK" secondAttribute="bottom" constant="20" id="3lv-Aq-6w0"/>
+                                    <constraint firstAttribute="trailing" secondItem="MNK-vJ-TI9" secondAttribute="trailing" id="Uhz-ER-89F"/>
                                     <constraint firstItem="bF3-Ur-bCK" firstAttribute="height" secondItem="uxz-kQ-KzZ" secondAttribute="height" id="cqL-NP-5bn"/>
+                                    <constraint firstItem="MNK-vJ-TI9" firstAttribute="leading" secondItem="3Xk-oV-sNm" secondAttribute="leading" id="z2p-Hy-hfC"/>
                                 </constraints>
                             </stackView>
                         </subviews>
