@@ -11,50 +11,67 @@ import XCTest
 class TranslateTestCase: XCTestCase {
 
     // Given
-    var translate = TranslateService(network: NetworkFake(testCase: .translate))
+    private var translate: TranslateService!
+    private let textReceived = "here is a standard text that I want to translate"
     
-    let textTest = "here is a standard text that I want to translate"
-    
-    override func setUp() {
-        super.setUp()
-        translate = TranslateService(network: NetworkFake(testCase: .translate))
+    private func initSUT(isFailed: Bool = false) {
+        translate = TranslateService(network: NetworkFake(testCase: .translate, isFailed: isFailed))
     }
     
     override func tearDown() {
         super.setUp()
-        //translate = nil
+        translate = nil
     }
 
-    func testWeatherShouldPostFailedCallbackIfResulIsNil() {
+    func testTranslateShouldPostSuccess() {
+        // Given
+        initSUT()
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change")
         // Then
-        translate.getData(text: textTest) { result in
-           XCTAssertNil(nil)
-            expectation.fulfill()
+        translate.getData(text: textReceived) { result in
+            switch result {
+            case .success(_):
+                expectation.fulfill()
+            case .failure(_):
+                XCTFail()
+            }
         }
         wait(for: [expectation], timeout: 0.01)
     }
     
-    func testWeatherShouldPostFailedCallbackIfIncorrectData() {
+    func testTranslateShouldPostSuccessOnDataTranslatedText() {
+        // Given
+        let sentenceReceived = "ici j'ai un texte standard que je veux traduire"
+        initSUT()
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change")
         // Then
-        let translateIncorrectData = "erreur".data(using: .utf8)!
-        translate.getData(text: textTest) { result in
-            XCTAssertNoThrow(translateIncorrectData)
-            expectation.fulfill()
+        translate.getData(text: textReceived) { result in
+            switch result {
+            case .success(_):
+                XCTAssertEqual(try? result.get().data.translations.first?.translatedText, sentenceReceived)
+                expectation.fulfill()
+            case .failure(_):
+                XCTFail()
+            }
         }
         wait(for: [expectation], timeout: 0.01)
     }
     
-    func testWeatherShouldPostSuccess() {
+    func testTranslateShouldReturnFailure() {
+        // Given
+        initSUT(isFailed: true)
         // When
-        let expectation = XCTestExpectation(description: "Wait for queue change")
+        let expectation = XCTestExpectation(description: "Should return failure")
         // Then
-        translate.getData(text: textTest) { result in
-            XCTAssertNoThrow(result)
-            expectation.fulfill()
+        translate.getData(text: textReceived) { result in
+            switch result {
+            case .success(_):
+                XCTFail()
+            case .failure(_):
+                expectation.fulfill()
+            }
         }
         wait(for: [expectation], timeout: 0.01)
     }
