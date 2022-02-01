@@ -41,7 +41,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AmO-OU-jh2" customClass="ReferenceButton" customModule="_021_11_baluchon" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AmO-OU-jh2" customClass="ReferenceButton" customModule="_021_11_baluchon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="629" width="354" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="aDD-gc-tD9"/>

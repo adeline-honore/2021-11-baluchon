@@ -17,12 +17,21 @@ class ReferenceButton: UIButton {
         layer.borderWidth = 1
         layer.borderColor = specialUCGColor
         layer.cornerRadius = frame.height / 2
+        setTitleColor(specialUIColor, for: .normal)
+        //setAttributedTitle(, for: <#T##UIControl.State#>)
+        //titleLabel?.textColor = specialUIColor
+        titleLabel?.textAlignment = .center
+        //titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
     }
     
     override func layoutSubviews(){
         super.layoutSubviews()
-        titleLabel?.textColor = specialUIColor
-        titleLabel?.textAlignment = .center
-        titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        
     }
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+    }
+        
+    
 }

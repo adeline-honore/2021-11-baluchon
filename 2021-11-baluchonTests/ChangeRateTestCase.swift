@@ -38,7 +38,7 @@ class ChangeRateTestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
-    func testChangeRateOnDataSuccess() {
+    func testChangeRateShouldPostSuccessOnDataSuccess() {
         // Given
         initSUT()
         // When
@@ -47,7 +47,7 @@ class ChangeRateTestCase: XCTestCase {
         changeRate.getData { result in
             switch result {
             case .success(_):
-                XCTAssertEqual(try! result.get().success, true)
+                XCTAssertEqual(try? result.get().success, true)
                 expectation.fulfill()
             case .failure(_):
                 XCTFail()
@@ -56,8 +56,9 @@ class ChangeRateTestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
-    func testChangeRateOnDataTimestamp() {
+    func testChangeRateShouldPostSuccessOnDataTimestamp() {
         // Given
+        let timestampReceived = 1642512844
         initSUT()
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change")
@@ -65,7 +66,7 @@ class ChangeRateTestCase: XCTestCase {
         changeRate.getData { result in
             switch result {
             case .success(_):
-                XCTAssertEqual(try! result.get().timestamp, 1642512844)
+                XCTAssertEqual(try? result.get().timestamp, timestampReceived)
                 expectation.fulfill()
             case .failure(_):
                 XCTFail()
@@ -74,8 +75,9 @@ class ChangeRateTestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
-    func testChangeRateOnDataBase() {
+    func testChangeRateShouldPostSuccessOnDataBase() {
         // Given
+        let baseReceived = "EUR"
         initSUT()
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change")
@@ -83,7 +85,7 @@ class ChangeRateTestCase: XCTestCase {
         changeRate.getData { result in
             switch result {
             case .success(_):
-                XCTAssertEqual(try! result.get().base, "EUR")
+                XCTAssertEqual(try? result.get().base, baseReceived)
                 expectation.fulfill()
             case .failure(_):
                 XCTFail()
@@ -92,8 +94,9 @@ class ChangeRateTestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
-    func testChangeRateOnDataDate() {
+    func testChangeRateShouldPostSuccessOnDataDate() {
         // Given
+        let dateReceived = "2022-01-18"
         initSUT()
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change")
@@ -101,7 +104,7 @@ class ChangeRateTestCase: XCTestCase {
         changeRate.getData { result in
             switch result {
             case .success(_):
-                XCTAssertEqual(try! result.get().date, "2022-01-18")
+                XCTAssertEqual(try? result.get().date, dateReceived)
                 expectation.fulfill()
             case .failure(_):
                 XCTFail()
@@ -110,8 +113,10 @@ class ChangeRateTestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
-    func testChangeRateOnDataRate() {
+    func testChangeRateShouldPostSuccessOnDataRate() {
         // Given
+        let currencyReceived = "USD"
+        let rateReceived = 1.137508
         initSUT()
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change")
@@ -119,8 +124,8 @@ class ChangeRateTestCase: XCTestCase {
         changeRate.getData { result in
             switch result {
             case .success(_):
-                XCTAssertEqual(try! result.get().rates.first?.key, "USD")
-                XCTAssertEqual(try! result.get().rates.first?.value, 1.137508)
+                XCTAssertEqual(try? result.get().rates.first?.key, currencyReceived)
+                XCTAssertEqual(try? result.get().rates.first?.value, rateReceived)
                 expectation.fulfill()
             case .failure(_):
                 XCTFail()
