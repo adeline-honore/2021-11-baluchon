@@ -72,6 +72,8 @@ class ChangeRateViewController: UIViewController {
     private func update(fixer: Fixer) {
         
         let changeRate = fixer.rates["USD"] ?? 0.0
+        let currencyIndex = changeRateView.currencySegmentedControl.selectedSegmentIndex
+        let initialCurrency: FixerCurrency = (currencyIndex == 0) ? .euro : .usd
         
         guard let amountToConvert = Double(changeRateView.amountToConvert.text ?? "") else {
             errorMessage(element: .empty)
@@ -79,10 +81,18 @@ class ChangeRateViewController: UIViewController {
         }
         
         DispatchQueue.main.async { [weak self] in
-            self?.changeRateView.convertedAmount.text = String(format:"%.2f", (amountToConvert * changeRate)) + " $"
+            self?.changeRateView.convertedAmount.text = self?.calculateConvertAmount(amountToConvert: amountToConvert, changeRate: changeRate, initialCurrency: initialCurrency)
         }
         
         setUserDefaults(timestampData: fixer.timestamp, rateData: changeRate)
+    }
+    
+    private func calculateConvertAmount(amountToConvert: Double, changeRate: Double, initialCurrency: FixerCurrency) -> String{
+        if initialCurrency == .usd {
+            return String(format:"%.2f", (amountToConvert / changeRate)) + " €"
+        } else {
+            return String(format:"%.2f", (amountToConvert * changeRate)) + " $"
+        }
     }
     
     private func setUserDefaults(timestampData: Int, rateData: Double) {

@@ -9,7 +9,6 @@ import Foundation
 
 class WeatherService: WeatherServiceProtocol {
     
-    //var network: NetworkProtocol = Network()
     private var network: NetworkProtocol
         
     init(network: NetworkProtocol) {

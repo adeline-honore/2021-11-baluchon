@@ -10,6 +10,7 @@ import UIKit
 class ChangeRateView: UIView {
     @IBOutlet weak var amountToConvert: UITextField!
     @IBOutlet weak var convertedAmount: UILabel!
+    @IBOutlet weak var currencySegmentedControl: UISegmentedControl!
     
     func test() {
         amountToConvert.becomeFirstResponder()

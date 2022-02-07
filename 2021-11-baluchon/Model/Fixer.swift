@@ -14,3 +14,7 @@ struct Fixer : Codable {
     let date: String
     let rates: [String: Double]
 }
+
+enum FixerCurrency {
+    case usd, euro
+}

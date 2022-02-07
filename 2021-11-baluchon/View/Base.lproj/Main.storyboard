@@ -286,31 +286,34 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3Xk-oV-sNm">
                                 <rect key="frame" x="30" y="98" width="354" height="699"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uxz-kQ-KzZ">
-                                        <rect key="frame" x="134.5" y="0.0" width="219.5" height="294.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uxz-kQ-KzZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="294.5"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter a number" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yIX-FP-ptN">
-                                                <rect key="frame" x="0.0" y="0.0" width="195.5" height="294.5"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter a number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yIX-FP-ptN">
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="209.5"/>
                                                 <color key="textColor" red="0.86542302370000002" green="0.39235061409999999" blue="0.22289600970000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7s-AV-QOs">
-                                                <rect key="frame" x="200.5" y="0.0" width="19" height="294.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <color key="textColor" red="0.86542302370000002" green="0.39235061409999999" blue="0.22289600970000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="J5f-6c-S5D">
+                                                <rect key="frame" x="0.0" y="214.5" width="354" height="81"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="J5f-6c-S5D" secondAttribute="height" multiplier="177:40" id="KGG-wL-Q4E"/>
+                                                </constraints>
+                                                <segments>
+                                                    <segment title="€"/>
+                                                    <segment title="$"/>
+                                                </segments>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="selectedSegmentTintColor" red="0.86542302370000002" green="0.39235061409999999" blue="0.22289600970000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </segmentedControl>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="C7s-AV-QOs" firstAttribute="leading" secondItem="yIX-FP-ptN" secondAttribute="trailing" constant="5" id="bSc-OM-snf"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bF3-Ur-bCK">
-                                        <rect key="frame" x="124" y="314.5" width="230" height="294.5"/>
+                                        <rect key="frame" x="0.0" y="314.5" width="354" height="294.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJw-Ye-dWs">
-                                                <rect key="frame" x="0.0" y="0.0" width="230" height="294.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJw-Ye-dWs">
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="294.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                 <color key="textColor" red="0.86542302370000002" green="0.39235061409999999" blue="0.22289600970000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -331,8 +334,12 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="MNK-vJ-TI9" firstAttribute="top" secondItem="bF3-Ur-bCK" secondAttribute="bottom" constant="20" id="3lv-Aq-6w0"/>
+                                    <constraint firstAttribute="trailing" secondItem="bF3-Ur-bCK" secondAttribute="trailing" id="TBw-qd-ATC"/>
+                                    <constraint firstItem="bF3-Ur-bCK" firstAttribute="leading" secondItem="3Xk-oV-sNm" secondAttribute="leading" id="TLd-5q-INP"/>
                                     <constraint firstAttribute="trailing" secondItem="MNK-vJ-TI9" secondAttribute="trailing" id="Uhz-ER-89F"/>
                                     <constraint firstItem="bF3-Ur-bCK" firstAttribute="height" secondItem="uxz-kQ-KzZ" secondAttribute="height" id="cqL-NP-5bn"/>
+                                    <constraint firstAttribute="trailing" secondItem="uxz-kQ-KzZ" secondAttribute="trailing" id="j3I-w4-Jgr"/>
+                                    <constraint firstItem="uxz-kQ-KzZ" firstAttribute="leading" secondItem="3Xk-oV-sNm" secondAttribute="leading" id="mip-VA-RG5"/>
                                     <constraint firstItem="MNK-vJ-TI9" firstAttribute="leading" secondItem="3Xk-oV-sNm" secondAttribute="leading" id="z2p-Hy-hfC"/>
                                 </constraints>
                             </stackView>
@@ -340,20 +347,18 @@
                         <viewLayoutGuide key="safeArea" id="sKa-Vx-8Ly"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="sKa-Vx-8Ly" firstAttribute="bottom" secondItem="3Xk-oV-sNm" secondAttribute="bottom" constant="16" id="LQG-Yn-XLk"/>
                             <constraint firstItem="3Xk-oV-sNm" firstAttribute="leading" secondItem="sKa-Vx-8Ly" secondAttribute="leading" constant="30" id="Mfo-3o-M0u"/>
                             <constraint firstItem="sKa-Vx-8Ly" firstAttribute="trailing" secondItem="3Xk-oV-sNm" secondAttribute="trailing" constant="30" id="hmI-kO-GVn"/>
                             <constraint firstItem="3Xk-oV-sNm" firstAttribute="top" secondItem="sKa-Vx-8Ly" secondAttribute="top" constant="10" id="m7T-Fd-llc"/>
+                            <constraint firstItem="sKa-Vx-8Ly" firstAttribute="bottom" secondItem="3Xk-oV-sNm" secondAttribute="bottom" constant="16" id="na6-aD-ljB"/>
                         </constraints>
                         <connections>
                             <outlet property="amountToConvert" destination="yIX-FP-ptN" id="lcg-dK-awr"/>
                             <outlet property="convertedAmount" destination="iJw-Ye-dWs" id="2M8-Jk-atl"/>
+                            <outlet property="currencySegmentedControl" destination="J5f-6c-S5D" id="SUY-Ah-iSS"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Convert" id="xhn-2V-LQc"/>
-                    <connections>
-                        <outlet property="keyboardHeightLayoutConstraint" destination="LQG-Yn-XLk" id="cN5-R7-rVO"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fIa-5a-bAE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
