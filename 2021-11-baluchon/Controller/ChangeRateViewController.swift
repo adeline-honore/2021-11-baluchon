@@ -87,12 +87,12 @@ class ChangeRateViewController: UIViewController {
         setUserDefaults(timestampData: fixer.timestamp, rateData: changeRate)
     }
     
-    private func calculateConvertAmount(amountToConvert: Double, changeRate: Double, initialCurrency: FixerCurrency) -> String{
-        if initialCurrency == .usd {
-            return String(format:"%.2f", (amountToConvert / changeRate)) + " €"
-        } else {
-            return String(format:"%.2f", (amountToConvert * changeRate)) + " $"
-        }
+    private func calculateConvertAmount(amountToConvert: Double, changeRate: Double, initialCurrency: FixerCurrency) -> String {
+        
+        initialCurrency == .usd ?
+        String(format:"%.2f", (amountToConvert / changeRate)) + FixerCurrency.euro.symbol :
+        String(format:"%.2f", (amountToConvert * changeRate)) + FixerCurrency.usd.symbol
+        
     }
     
     private func setUserDefaults(timestampData: Int, rateData: Double) {

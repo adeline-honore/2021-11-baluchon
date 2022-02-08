@@ -17,4 +17,13 @@ struct Fixer : Codable {
 
 enum FixerCurrency {
     case usd, euro
+    
+    var symbol: String {
+        switch self {
+        case .usd:
+            return "$"
+        case .euro:
+            return "€"
+        }
+    }
 }

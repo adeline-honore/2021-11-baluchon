@@ -23,7 +23,7 @@ class ReferenceButton: UIButton {
     
     override func layoutSubviews(){
         super.layoutSubviews()
-        titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .regular)
     }
     
     required init?(coder: NSCoder) {

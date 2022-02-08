@@ -71,25 +71,21 @@ class WeatherViewController: UIViewController {
     }
     
     private func kelvinToCelsius(kelvin: Double) -> String {
-        return String(format:"%.1f", (kelvin - 273.15)) + " °C"
+        String(format:"%.1f", (kelvin - 273.15)) + " °C"
     }
     
     private func windSpeedCalculation(speed: Double) -> String {
-        return "wind speed : " + String(format:"%.0f", (speed * 3.6)) + " km/h"
+        "wind speed : " + String(format:"%.0f", (speed * 3.6)) + " km/h"
     }
     
     private func setCustomView(customView: CustomWeatherView) {
         guard let originWeatherImage = UIImage(named: "originWeatherImage"),
-              let destinyWeatherImage = UIImage(named: "destinyWeatherImage") else
-              {
-                  return
-              }
-        
-        if customView == originWeatherView {
-            customView.backgroundColor = UIColor(patternImage: originWeatherImage).withAlphaComponent(0.5)
-        } else {
-            customView.backgroundColor = UIColor(patternImage: destinyWeatherImage).withAlphaComponent(0.7)
+              let destinyWeatherImage = UIImage(named: "destinyWeatherImage")
+        else {
+            return
         }
+        
+        customView.backgroundColor = UIColor(patternImage: customView == originWeatherView ? originWeatherImage : destinyWeatherImage).withAlphaComponent(0.5)
     }
     
     @objc func weatherLoaded() {
